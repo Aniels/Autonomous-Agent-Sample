@@ -1,0 +1,94 @@
+# Byte-compiled files  
+*.pyc  
+*.pyo  
+*.pyd  
+  
+# C extensions  
+*.so  
+  
+# Distribution / packaging  
+build/  
+dist/  
+*.egg-info/  
+.eggs/  
+  
+# Virtual environment  
+venv/  
+env/  
+.virtualenv/  
+.Python  
+
+# Document Data
+data/original
+data/temp
+
+# Jupyter Notebook metadata  
+.ipynb_checkpoints  
+  
+# Spyder project settings  
+.spyderproject  
+.spyproject  
+  
+# Unit test coverage reports  
+htmlcov/  
+.coverage  
+.coverage.*  
+.cache  
+nosetests.xml  
+coverage.xml  
+*.cover  
+*.pycover  
+*hypothesis/  
+  
+# MyPy type-checking cache  
+.mypy_cache/  
+.dmypy.json  
+  
+# Pytest cache  
+.pytest_cache/  
+  
+# Logs and temporary files  
+*.log  
+*.bak  
+*.swp  
+*.swo  
+*.tmp  
+  
+# Django stuff  
+**/__pycache__/  
+**/migrations/*   # Ignore migration files except the `__init__.py`  
+!*/migrations/__init__.py  
+  
+# Flask stuff  
+instance/  
+.env  
+  
+# IDE/editor settings  
+.idea/  
+.vscode/  
+*.sublime-project  
+*.sublime-workspace  
+  
+# macOS Finder files  
+.DS_Store  
+  
+# Windows system files  
+Thumbs.db  
+Desktop.ini  
+  
+# Python virtualenv / pipenv artifacts  
+pip-log.txt  
+pip-delete-this-directory.txt  
+*.envrc  
+*.env.secret  
+  
+# Configurations to ignore  
+.settings/  
+.envrc  
+.env.local  
+  
+# Other security-sensitive files  
+*.pem  
+*.key  
+*.crt  
+*.secret  
