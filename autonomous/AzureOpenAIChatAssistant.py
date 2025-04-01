@@ -7,9 +7,9 @@ class AzureOpenAIChatAssistant:
     def __init__(self):  
         # Load environment variables from the .env file  
         load_dotenv()  
-  
+        self.count:int = 0
         # Initialize Azure OpenAI configuration  
-        self.endpoint = os.getenv("ENDPOINT_URL")  
+        self.endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")  
         self.deployment = os.getenv("DEPLOYMENT_NAME", "gpt-4o-mini")  
         self.subscription_key = os.getenv("AZURE_OPENAI_API_KEY")  
           
@@ -79,8 +79,8 @@ class AzureOpenAIChatAssistant:
                 stop=stop,  
                 stream=stream,
                 response_format={ "type": "json_object" }, 
-            )  
-            print("Input tokens: " + str(completion.usage.prompt_tokens) + ", Output tokens: " + str(completion.usage.completion_tokens))
+            )
+            print(f"{self.count}, Input tokens: {completion.usage.prompt_tokens}, Output tokens: {completion.usage.completion_tokens}")
             return completion.choices[0].message.content
         except Exception as e:  
             return {"error": str(e)}  
@@ -94,8 +94,8 @@ if __name__ == "__main__":
     with open("data/original/All.txt", mode="r") as f:
         ori_content = f.read()
 
-    with open("temp/original/All.txt", mode="r") as f:
+    with open("data/temp/All.txt", mode="r") as f:
         new_content = f.read()
-
     
     response = assistant.generate_completion(new_content, ori_content)
+    print(response)
