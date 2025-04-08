@@ -21,11 +21,11 @@ def partner_center(INIT_PROJECT=False):
         agenda_processer.request_content_and_save(records=agenda_records, dist_folder_path=TEMP_FOLDER)
         
         # Step 3: Compare the original and temporary content in data folder, then push to the queue
-        # agenda_processer.compare_files_and_push_changes()
+        agenda_processer.compare_files_and_push_changes()
   
   
 if __name__ == "__main__":  
     if PROJECT == "partner_conter":  
-        partner_center(INIT_PROJECT=True)
+        partner_center(INIT_PROJECT=True) # need to do it with False in second times to compare different
     else:  
         print("No valid project selected.")
