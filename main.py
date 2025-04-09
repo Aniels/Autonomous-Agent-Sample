@@ -1,4 +1,4 @@
-from autonomous.agendaProcesser import AgendaProcessor
+from autonomous.agenda_processor import AgendaProcessor
 
 PROJECT = "partner_conter"
 AGENDA_PATH = "data/agenda.html"

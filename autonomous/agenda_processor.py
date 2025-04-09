@@ -8,8 +8,8 @@ from dotenv import load_dotenv
 from bs4 import BeautifulSoup  
 from azure.storage.queue import QueueClient
 
-from autonomous.data_class import Record
-from autonomous.AzureOpenAIChatAssistant import AzureOpenAIChatAssistant
+from autonomous.record import Record
+from autonomous.azure_openAI_chat_assistant import AzureOpenAIChatAssistant
 
 
 class AgendaProcessor:  
