@@ -21,6 +21,7 @@ pip install -r requirements.txt
 Create a .env file in the root directory and define the following variables:
 
 > CONN_STR=<your_azure_queue_connection_string>  
+> QUEUE_NAME=<your_azure_queue_name>
 > ENDPOINT_URL=<your_azure_openai_endpoint_url>  
 > DEPLOYMENT_NAME=<your_azure_openai_deployment_name>  
 > AZURE_OPENAI_API_KEY=<your_azure_openai_api_key>  

@@ -1,29 +1,32 @@
-from autonoumous.tool import get_record_from_agenda, request_content_and_save, compare  
-  
+from autonomous.agendaProcesser import AgendaProcessor
+
 PROJECT = "partner_conter"
+AGENDA_PATH = "data/agenda.html"
+ORIGINAL_FOLDER= "data/original"
+TEMP_FOLDER= "data/temp"
   
-def partner_conter(INIT_PROJECT=False):  
-    # Read the HTML content from the agenda file  
-    with open("data/agenda.html", mode="r") as f:  
-        html_content = f.read()  
-  
-    # Step 1: Extract records from the HTML agenda  
-    agenda_records = get_record_from_agenda(html_content)  
-  
-    if INIT_PROJECT:  
-        # Step 2-1: Save original content  
-        request_content_and_save(agenda_records, dist_folder_path="data/original")  
+def partner_center(INIT_PROJECT=False):  
+    agenda_processer = AgendaProcessor(
+    original_folder_path = ORIGINAL_FOLDER,
+    temp_folder_path = TEMP_FOLDER
+    )
+
+    agenda_records = agenda_processer.get_records_from_agenda(agenda_path=AGENDA_PATH)
+
+    if INIT_PROJECT:
+        # Step 2-1: Save original content
+        agenda_processer.request_content_and_save(records=agenda_records, dist_folder_path=ORIGINAL_FOLDER)
     else:  
-        # Step 2-2: Save temp content  
-        request_content_and_save(agenda_records, dist_folder_path="data/temp")
+        # Step 2-2: Save temp content
+        agenda_processer.request_content_and_save(records=agenda_records, dist_folder_path=TEMP_FOLDER)
         
         # Step 3: Compare the original and temporary content in data folder, then push to the queue
-        changes = compare("data/original", "data/temp")  
-        print(f"Changes detected: {changes}")  
-  
+        agenda_processer.compare_files_and_push_changes()
+ 
   
 if __name__ == "__main__":  
-    if PROJECT == "partner_conter":  
-        partner_conter(INIT_PROJECT=False)
+    if PROJECT == "partner_conter":
+        partner_center(INIT_PROJECT=True) # need to do it with False in second times to compare different
     else:  
-        print("No valid project selected.")  
+        print("No valid project selected.")
+
